@@ -23,7 +23,6 @@ async function GeneratePokemon() {
     const pokemonID = Math.floor((Math.random() * 151) + 1);
     const reponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
     const Pokemon = await reponse.json();
-    console.log(Pokemon);
     const pokemonHP = Pokemon.stats[0].base_stat
     const pokemonAttack = Pokemon.stats[1].base_stat
     const pokemonDefense = Pokemon.stats[2].base_stat
@@ -31,6 +30,7 @@ async function GeneratePokemon() {
     const pokemonName = Pokemon.name
     const pokemonArtwork = Pokemon.sprites.other.dream_world.front_default
     const pokemonTypes = Pokemon.types
+
     document.getElementById("HP").innerHTML = pokemonHP;
     document.getElementById("Attack").innerHTML = pokemonAttack;
     document.getElementById("Defense").innerHTML = pokemonDefense;
